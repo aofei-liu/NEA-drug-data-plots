@@ -2,7 +2,7 @@
 
 Code for visualization and analysis of intracellular action potentials recorded on a custom multichannel nanoelectrode array. See [this publication](https://doi.org/10.1016/j.bios.2022.114617) for more information. 
 
-Requires [statannot](https://github.com/webermarcolivier/statannot).
+Requires [statannot](https://github.com/webermarcolivier/statannot), as well as many of the signal processing libraries in MATLAB (including findpeaks and h5read).
 
 The bulk of the analysis code is written in MATLAB because some of the members in lab prefer to use GUIDE, the GUI editor in MATLAB, and prefer to interact with the data via a graphic user interface (alas, my push for the adoption of ipywidgets in jupyter notebooks for easy visualization has failed). As this is code that has been cobbled together by many people and our lab doesn't really use any form of reasonable version control or have guidelines for code hygiene, it is kind of a mess to read through. The gist of the analysis is that the sharp rising phase of intracellular action potentials can be identified by taking the standard deviation of the signal and it is then possible to perform peak finding on the derivative and use some heuristics to filter and identify the starting, maximum and ending points of each action potential. From there, information such as the APD and t-rise can be determined and computed for each action potential. 
 
